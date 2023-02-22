@@ -9,29 +9,22 @@ import {
   View,
 } from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import AddToCartButton from './src/components/AddToCartButton';
-import DetailProduct from './src/screens/DetailProduct';
+import Header from './src/components/Header';
 
 function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <View style={styles.container}>
-      {/* <SafeAreaView style={backgroundStyle}> */}
+    <SafeAreaView style={{flex: 1}}>
+      <Header />
       <AddToCartButton />
-      {/* </SafeAreaView> */}
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'red',
   },
 });
 
