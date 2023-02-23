@@ -9,10 +9,10 @@ import {
   View,
 } from 'react-native';
 
-export default function Home() {
+export const Home = () => {
   return (
     <View>
-      <Text>hola</Text>
+      <Text>Home</Text>
     </View>
   );
-}
+};

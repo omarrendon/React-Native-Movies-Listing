@@ -1,31 +1,14 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
-import AddToCartButton from './src/components/AddToCartButton';
-import Header from './src/components/Header';
+import {NavigationContainer} from '@react-navigation/native';
+import {StackNavigator} from './src/navigator/StackNavigator';
 
 function App(): JSX.Element {
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <Header />
-      <AddToCartButton />
-    </SafeAreaView>
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'red',
-  },
-});
 
 export default App;

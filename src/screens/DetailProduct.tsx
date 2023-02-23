@@ -9,12 +9,12 @@ import {
   View,
 } from 'react-native';
 
-export default function DetailProduct() {
+export const DetailProduct = () => {
   return (
     <SafeAreaView>
       <View>
-        <Text>hola</Text>
+        <Text>Detail product</Text>
       </View>
     </SafeAreaView>
   );
-}
+};
