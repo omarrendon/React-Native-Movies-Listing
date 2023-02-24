@@ -1,3 +1,4 @@
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React from 'react';
 import {
   SafeAreaView,
@@ -6,12 +7,17 @@ import {
   StyleSheet,
   Text,
   useColorScheme,
+  Button,
   View,
 } from 'react-native';
 
-export const Favorites = () => {
+interface Props extends NativeStackScreenProps<any, any> {}
+
+export const Favorites = ({navigation}: Props) => {
   return (
     <View>
+      <Button title="Regresar" onPress={() => navigation.pop()} />
+      <Button title="Inicio" onPress={() => navigation.popToTop()} />
       <Text>Fvaorites</Text>
     </View>
   );
