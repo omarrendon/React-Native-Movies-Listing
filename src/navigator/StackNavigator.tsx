@@ -17,10 +17,10 @@ export const StackNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        // headerShown: true,
+        // headerShown: false,
         headerShadowVisible: false,
         contentStyle: {
-          backgroundColor: 'white',
+          backgroundColor: 'withe',
         },
       }}
       initialRouteName="Home">

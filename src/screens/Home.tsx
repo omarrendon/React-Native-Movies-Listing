@@ -11,7 +11,7 @@ import {
   View,
 } from 'react-native';
 import AddToCartButton from '../components/AddToCartButton';
-import Header from '../components/Header';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 interface Props extends NativeStackScreenProps<any, any> {}
 
@@ -29,6 +29,10 @@ export const Home = ({navigation}: Props) => {
           })
         }
       />
+      <Text>Iconos</Text>
+      <Text>
+        <Icon name="airplane-outline" size={30} color="#900" />
+      </Text>
       <AddToCartButton />
     </View>
   );
