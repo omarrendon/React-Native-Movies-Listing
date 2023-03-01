@@ -2,11 +2,14 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import {DrawerNavigation} from './src/navigator/DrawerNavigation';
 import 'react-native-gesture-handler';
+import {Authprovider} from './src/context/authContext';
 
 function App(): JSX.Element {
   return (
     <NavigationContainer>
-      <DrawerNavigation />
+      <Authprovider>
+        <DrawerNavigation />
+      </Authprovider>
     </NavigationContainer>
   );
 }

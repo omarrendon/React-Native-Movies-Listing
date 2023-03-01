@@ -1,11 +1,17 @@
-import React from 'react';
+import {colors} from '../theme/appTheme';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function AddToCartButton() {
   return (
     <TouchableOpacity style={styles.buttonLocation} activeOpacity={0.5}>
       <View style={styles.button}>
-        <Text style={styles.buttonText}>Cart</Text>
+        <Icon
+          name="cart-outline"
+          style={styles.buttonText}
+          size={40}
+          color="white"
+        />
       </View>
     </TouchableOpacity>
   );
