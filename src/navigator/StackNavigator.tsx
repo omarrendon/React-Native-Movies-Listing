@@ -3,6 +3,7 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {Home, DetailProduct, Cart, Favorites} from '../screens/index';
+import {TapNavigator} from './TapNavigator';
 
 export type RootStackParams = {
   Home: undefined;
@@ -52,6 +53,7 @@ export const StackNavigator = () => {
         }}
         component={Favorites}
       />
+      {/* <Stack.Screen name="TapNavigator" component={TapNavigator} /> */}
     </Stack.Navigator>
   );
 };

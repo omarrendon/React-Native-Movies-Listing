@@ -1,15 +1,17 @@
 import React, {useContext} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Button} from 'react-native';
 import {AuthContext} from '../context/authContext';
 
 export const SettingsScreen = () => {
-  const {authState, sigIn} = useContext(AuthContext);
+  const {authState, signIn} = useContext(AuthContext);
 
   console.log({authState});
 
   return (
     <View>
-      <Text>Settings</Text>
+      <Button title="SignIn" onPress={() => signIn()} />
+      <Text>Settings: {authState.username}</Text>
+      <Text>Icon: {authState.favoriteIcon}</Text>
     </View>
   );
 };

@@ -7,12 +7,12 @@ import {RootStackParams} from '../navigator/StackNavigator';
 interface Props extends NativeStackScreenProps<RootStackParams, 'Cart'> {}
 
 export const Cart = ({navigation, route}: Props) => {
-  const {name, id} = route.params;
+  // const {name, id} = route.params;
 
   useEffect(() => {
-    navigation.setOptions({
-      title: `Carrito de ${name}`,
-    });
+    // navigation.setOptions({
+    //   title: `Carrito de ${name}`,
+    // });
   }, []);
 
   return (
@@ -22,9 +22,7 @@ export const Cart = ({navigation, route}: Props) => {
         onPress={() => navigation.navigate('Favorites' as never)}
       />
       <Text>Persona</Text>
-      <Text>
-        {name} - {id}
-      </Text>
+      <Text>{/* {name} - {id} */}</Text>
     </View>
   );
 };

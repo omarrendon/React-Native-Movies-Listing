@@ -1,10 +1,15 @@
 import {colors} from '../theme/appTheme';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {useNavigation} from '@react-navigation/native';
 
 export default function AddToCartButton() {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={styles.buttonLocation} activeOpacity={0.5}>
+    <TouchableOpacity
+      style={styles.buttonLocation}
+      activeOpacity={0.5}
+      onPress={() => navigation.navigate('Cart' as never)}>
       <View style={styles.button}>
         <Icon
           name="cart-outline"

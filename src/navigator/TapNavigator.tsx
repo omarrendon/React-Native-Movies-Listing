@@ -57,16 +57,18 @@ const TapsIOS = () => {
         backgroundColor: 'white',
       }}
       screenOptions={({route}) => ({
+        headerShown: false,
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: '#9E9E9E',
         tabBarStyle: {
           borderTopColor: colors.primary,
           borderTopWidth: 0,
           elevation: 0,
-          margin: Platform.OS === 'ios' ? 0 : 1,
+          marginBottom: Platform.OS === 'ios' ? 0 : 10,
         },
         tabBarLabelStyle: {
           fontSize: 15,
+          marginBottom: Platform.OS === 'ios' ? 0 : 1,
         },
         tabBarIcon: props => {
           let iconName: string = '';
@@ -74,7 +76,7 @@ const TapsIOS = () => {
             case 'Home':
               iconName = 'home-outline';
               break;
-            case 'Settings':
+            case 'Favorites':
               iconName = 'star-outline';
               break;
             case 'StackNavigator':
@@ -85,12 +87,12 @@ const TapsIOS = () => {
         },
       })}>
       <TabIOS.Screen name="Home" component={Home} />
-      <TabIOS.Screen name="Settings" component={SettingsScreen} />
-      <TabIOS.Screen
-        options={{title: 'Stack'}}
+      <TabIOS.Screen name="Favorites" component={Favorites} />
+      {/* <TabIOS.Screen
+        options={{title: 'Settings'}}
         name="StackNavigator"
         component={StackNavigator}
-      />
+      /> */}
     </TabIOS.Navigator>
   );
 };

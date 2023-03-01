@@ -1,5 +1,5 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -9,31 +9,25 @@ import {
   Text,
   useColorScheme,
   View,
+  TouchableOpacity,
 } from 'react-native';
 import AddToCartButton from '../components/AddToCartButton';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {AuthContext} from '../context/authContext';
+import storeDB from '../api/fakeStore';
 
 interface Props extends NativeStackScreenProps<any, any> {}
 
 export const Home = ({navigation}: Props) => {
+  const {changeIcon, authCleanSate} = useContext(AuthContext);
+
+  useEffect(() => {
+    // storeDB.get('/products').then(res => console.log({res}));
+  }, []);
+
   return (
-    <View style={{flex: 1, borderBottomColor: '1px solid red'}}>
-      {/* <Header /> */}
-      <Text>Home Page</Text>
-      <Button
-        title="Cart"
-        onPress={() =>
-          navigation.navigate('Cart', {
-            id: 1,
-            name: 'pedro',
-          })
-        }
-      />
-      <Text>Iconos</Text>
-      <Text>
-        <Icon name="airplane-outline" size={30} color="#900" />
-      </Text>
+    <SafeAreaView style={{flex: 1}}>
       <AddToCartButton />
-    </View>
+    </SafeAreaView>
   );
 };
