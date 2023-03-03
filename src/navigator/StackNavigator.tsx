@@ -18,7 +18,7 @@ export const StackNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        // headerShown: false,
+        headerShown: false,
         headerShadowVisible: false,
         contentStyle: {
           backgroundColor: 'withe',
