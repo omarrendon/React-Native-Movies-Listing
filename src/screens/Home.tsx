@@ -11,6 +11,7 @@ import {
   View,
   TouchableOpacity,
   ActivityIndicator,
+  Dimensions,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -21,13 +22,14 @@ import {
   LoadingIndicator,
   ProductCard,
 } from '../components/index';
+import Carousel from 'react-native-snap-carousel';
 
 interface Props extends NativeStackScreenProps<any, any> {}
 
+const {width: windowWidth} = Dimensions.get('window');
+
 export const Home = ({navigation}: Props) => {
   const {products, isLoading} = useProducts();
-
-  // console.log(JSON.stringify(products, null, 4));
 
   if (isLoading) {
     return (
@@ -39,7 +41,16 @@ export const Home = ({navigation}: Props) => {
 
   return (
     <SafeAreaView style={styles.homeContainer}>
-      <AddToCartButton />
+      {/* <ProductCard product={products[0]} /> */}
+      <View style={styles.carouselContainer}>
+        <Carousel
+          data={products as never}
+          renderItem={({item}: any) => <ProductCard product={item} />}
+          sliderWidth={windowWidth}
+          itemWidth={300}
+        />
+        <AddToCartButton />
+      </View>
     </SafeAreaView>
   );
 };
@@ -47,5 +58,9 @@ export const Home = ({navigation}: Props) => {
 const styles = StyleSheet.create({
   homeContainer: {
     flex: 1,
+    top: 60,
+  },
+  carouselContainer: {
+    height: 440,
   },
 });

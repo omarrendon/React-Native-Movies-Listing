@@ -1,5 +1,5 @@
 export interface ProductsDb {
-  result: Product[];
+  product: Product[];
 }
 
 export interface Product {
