@@ -3,7 +3,7 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 
-export default function AddToCartButton() {
+export const AddToCartButton = () => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
@@ -20,7 +20,7 @@ export default function AddToCartButton() {
       </View>
     </TouchableOpacity>
   );
-}
+};
 
 const styles = StyleSheet.create({
   button: {

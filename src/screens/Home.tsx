@@ -12,19 +12,22 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
-import AddToCartButton from '../components/AddToCartButton';
+
 import Icon from 'react-native-vector-icons/Ionicons';
-import {AuthContext} from '../context/authContext';
 import {useProducts} from '../hooks/useProducts';
 import {colors} from '../theme/appTheme';
-import {LoadingIndicator} from '../components/LoadingIndicator';
+import {
+  AddToCartButton,
+  LoadingIndicator,
+  ProductCard,
+} from '../components/index';
 
 interface Props extends NativeStackScreenProps<any, any> {}
 
 export const Home = ({navigation}: Props) => {
   const {products, isLoading} = useProducts();
 
-  console.log(JSON.stringify(products, null, 4));
+  // console.log(JSON.stringify(products, null, 4));
 
   if (isLoading) {
     return (
@@ -35,7 +38,7 @@ export const Home = ({navigation}: Props) => {
   }
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={styles.homeContainer}>
       <AddToCartButton />
     </SafeAreaView>
   );

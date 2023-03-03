@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, useWindowDimensions, View} from 'react-native';
 
-export default function Header() {
+export const Header = () => {
   const {width, height} = useWindowDimensions();
 
   return (
@@ -13,7 +13,7 @@ export default function Header() {
       <Text>Shopping App</Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
