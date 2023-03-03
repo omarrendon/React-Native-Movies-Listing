@@ -1,5 +1,5 @@
+import React, {useContext} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import React, {useContext, useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -14,16 +14,14 @@ import {
 import AddToCartButton from '../components/AddToCartButton';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {AuthContext} from '../context/authContext';
-import storeDB from '../api/fakeStore';
+import {useProducts} from '../hooks/useProducts';
 
 interface Props extends NativeStackScreenProps<any, any> {}
 
 export const Home = ({navigation}: Props) => {
+  const {products} = useProducts();
   const {changeIcon, authCleanSate} = useContext(AuthContext);
-
-  useEffect(() => {
-    // storeDB.get('/products').then(res => console.log({res}));
-  }, []);
+  console.log(JSON.stringify(products, null, 4));
 
   return (
     <SafeAreaView style={{flex: 1}}>
