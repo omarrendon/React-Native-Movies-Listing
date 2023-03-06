@@ -1,19 +1,19 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
-import {Product, ProductsDb} from '../interfaces/shopInterface';
+import {Movie} from '../interfaces/movieInterface';
 
 interface Props {
-  product: Product;
+  movie: Movie;
   height?: number;
   width?: number;
 }
-export const ProductCard = ({product, height = 420, width = 300}: Props) => {
-  const image = product.image;
+export const ProductCard = ({movie, height = 420, width = 300}: Props) => {
+  const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
   return (
     <View style={{height, width, marginHorizontal: 8}}>
       <View style={styles.imageContainer}>
-        <Image source={{uri: image}} style={styles.image} />
+        <Image source={{uri}} style={styles.image} />
       </View>
     </View>
   );
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
       height: 10,
     },
     shadowOpacity: 0.3,
-    shadowRadius: 3.84,
-    elevation: 20,
+    shadowRadius: 7,
+    elevation: 10,
   },
 });

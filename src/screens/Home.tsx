@@ -11,10 +11,11 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
-import {useProducts} from '../hooks/useProducts';
+import {useMovies} from '../hooks/useMovies';
 import {colors} from '../theme/appTheme';
 import {
   AddToCartButton,
+  HorizontalSlider,
   LoadingIndicator,
   ProductCard,
 } from '../components/index';
@@ -25,7 +26,7 @@ interface Props extends NativeStackScreenProps<any, any> {}
 const {width: windowWidth} = Dimensions.get('window');
 
 export const Home = ({navigation}: Props) => {
-  const {products, isLoading} = useProducts();
+  const {nowPlaying, isLoading, popular, topRated, upcoming} = useMovies();
 
   if (isLoading) {
     return (
@@ -38,53 +39,20 @@ export const Home = ({navigation}: Props) => {
   return (
     <SafeAreaView style={styles.homeContainer}>
       <ScrollView>
-        {/* <ProductCard product={products[0]} /> */}
         <View style={styles.carouselContainer}>
           <Carousel
-            data={products as never}
-            renderItem={({item}: any) => <ProductCard product={item} />}
+            data={nowPlaying}
+            renderItem={({item}: any) => <ProductCard movie={item} />}
             sliderWidth={windowWidth}
             itemWidth={300}
-          />
-          <AddToCartButton />
-        </View>
-        <View style={styles.flatListContainer}>
-          <Text style={styles.flatListText}> En cine</Text>
-          <FlatList
-            data={products as never}
-            renderItem={({item}: any) => (
-              <ProductCard product={item} width={140} height={200} />
-            )}
-            keyExtractor={(item: any) => item.id}
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
+            inactiveSlideOpacity={0.9}
           />
         </View>
-        <View style={styles.flatListContainer}>
-          <Text style={styles.flatListText}> En cine</Text>
-          <FlatList
-            data={products as never}
-            renderItem={({item}: any) => (
-              <ProductCard product={item} width={140} height={200} />
-            )}
-            keyExtractor={(item: any) => item.id}
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
-        <View style={styles.flatListContainer}>
-          <Text style={styles.flatListText}> En cine</Text>
-          <FlatList
-            data={products as never}
-            renderItem={({item}: any) => (
-              <ProductCard product={item} width={140} height={200} />
-            )}
-            keyExtractor={(item: any) => item.id}
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
+        <HorizontalSlider title="Popular" movies={popular} />
+        <HorizontalSlider title="Top Rated" movies={topRated} />
+        <HorizontalSlider title="Upcoming" movies={upcoming} />
       </ScrollView>
+      <AddToCartButton />
     </SafeAreaView>
   );
 };
@@ -96,13 +64,5 @@ const styles = StyleSheet.create({
   },
   carouselContainer: {
     height: 440,
-  },
-  flatListContainer: {
-    // backgroundColor: 'red',
-    height: 250,
-  },
-  flatListText: {
-    fontSize: 30,
-    fontWeight: 'bold',
   },
 });
