@@ -4,13 +4,14 @@ import {Product, ProductsDb} from '../interfaces/shopInterface';
 
 interface Props {
   product: Product;
+  height?: number;
+  width?: number;
 }
-export const ProductCard = ({product}: Props) => {
+export const ProductCard = ({product, height = 420, width = 300}: Props) => {
   const image = product.image;
-  console.log({image});
 
   return (
-    <View style={styles.container}>
+    <View style={{height, width, marginHorizontal: 8}}>
       <View style={styles.imageContainer}>
         <Image source={{uri: image}} style={styles.image} />
       </View>
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
   imageContainer: {
     flex: 1,
     borderRadius: 18,
-    shadowColor: '#000',
+    backgroundColor: '#000',
     shadowOffset: {
       width: 0,
       height: 10,
@@ -36,9 +37,5 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 3.84,
     elevation: 20,
-  },
-  container: {
-    width: 300,
-    height: 420,
   },
 });

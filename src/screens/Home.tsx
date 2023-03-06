@@ -2,16 +2,12 @@ import React, {useContext} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {
   SafeAreaView,
-  ScrollView,
-  StatusBar,
-  Button,
   StyleSheet,
-  Text,
-  useColorScheme,
   View,
-  TouchableOpacity,
-  ActivityIndicator,
   Dimensions,
+  FlatList,
+  Text,
+  ScrollView,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -41,16 +37,54 @@ export const Home = ({navigation}: Props) => {
 
   return (
     <SafeAreaView style={styles.homeContainer}>
-      {/* <ProductCard product={products[0]} /> */}
-      <View style={styles.carouselContainer}>
-        <Carousel
-          data={products as never}
-          renderItem={({item}: any) => <ProductCard product={item} />}
-          sliderWidth={windowWidth}
-          itemWidth={300}
-        />
-        <AddToCartButton />
-      </View>
+      <ScrollView>
+        {/* <ProductCard product={products[0]} /> */}
+        <View style={styles.carouselContainer}>
+          <Carousel
+            data={products as never}
+            renderItem={({item}: any) => <ProductCard product={item} />}
+            sliderWidth={windowWidth}
+            itemWidth={300}
+          />
+          <AddToCartButton />
+        </View>
+        <View style={styles.flatListContainer}>
+          <Text style={styles.flatListText}> En cine</Text>
+          <FlatList
+            data={products as never}
+            renderItem={({item}: any) => (
+              <ProductCard product={item} width={140} height={200} />
+            )}
+            keyExtractor={(item: any) => item.id}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
+        <View style={styles.flatListContainer}>
+          <Text style={styles.flatListText}> En cine</Text>
+          <FlatList
+            data={products as never}
+            renderItem={({item}: any) => (
+              <ProductCard product={item} width={140} height={200} />
+            )}
+            keyExtractor={(item: any) => item.id}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
+        <View style={styles.flatListContainer}>
+          <Text style={styles.flatListText}> En cine</Text>
+          <FlatList
+            data={products as never}
+            renderItem={({item}: any) => (
+              <ProductCard product={item} width={140} height={200} />
+            )}
+            keyExtractor={(item: any) => item.id}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -58,9 +92,17 @@ export const Home = ({navigation}: Props) => {
 const styles = StyleSheet.create({
   homeContainer: {
     flex: 1,
-    top: 60,
+    top: 40,
   },
   carouselContainer: {
     height: 440,
+  },
+  flatListContainer: {
+    // backgroundColor: 'red',
+    height: 250,
+  },
+  flatListText: {
+    fontSize: 30,
+    fontWeight: 'bold',
   },
 });
