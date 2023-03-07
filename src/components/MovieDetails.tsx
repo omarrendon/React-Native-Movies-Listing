@@ -21,10 +21,10 @@ export const MovieDetails = ({cast, movieFull}: Props) => {
             - {movieFull.genres.map(el => el.name).join('')}
           </Text>
         </View>
-        <Text style={styles.historyTitle}>Historia</Text>
+        <Text style={styles.historyTitle}>Synopsis</Text>
         <Text style={styles.historyOverview}>{movieFull.overview}</Text>
         <View style={styles.castContainer}>
-          <Text style={styles.historyTitle}>Actores</Text>
+          <Text style={styles.historyTitle}>Cast</Text>
           <FlatList
             data={cast}
             keyExtractor={item => item.id.toString()}
