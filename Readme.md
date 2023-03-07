@@ -28,12 +28,12 @@ Commands to run the project:
 
 ## Screens
 
-![](./src/screenCaptures/p1.png)
-![](./src/screenCaptures/p2.png)
-![](./src/screenCaptures/p3.png)
-![](./src/screenCaptures/p4.png)
-![](./src/screenCaptures/p5.png)
-![](./src/screenCaptures/p6.png)
-![](./src/screenCaptures/p7.png)
+![](./src/screenCaptures/P1.png)
+![](./src/screenCaptures/P2.png)
+![](./src/screenCaptures/P3.png)
+![](./src/screenCaptures/P4.png)
+![](./src/screenCaptures/P5.png)
+![](./src/screenCaptures/P6.png)
+![](./src/screenCaptures/P7.png)
 
 Feel free to clone the project and if possible send PR with new features.
