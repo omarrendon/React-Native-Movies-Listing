@@ -42,7 +42,6 @@ export const useMovies = () => {
   };
 
   useEffect(() => {
-    // now_playing
     getMovies();
   }, []);
 

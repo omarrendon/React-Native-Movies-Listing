@@ -1,21 +1,40 @@
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {Movie} from '../interfaces/movieInterface';
+import {RootStackParams} from '../navigator/StackNavigator';
 
 interface Props {
   movie: Movie;
   height?: number;
   width?: number;
 }
+
+type HomeScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParams,
+  'Home'
+>;
+
 export const ProductCard = ({movie, height = 420, width = 300}: Props) => {
   const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+  const {navigate} = useNavigation<HomeScreenNavigationProp>();
 
   return (
-    <View style={{height, width, marginHorizontal: 8}}>
+    <TouchableOpacity
+      activeOpacity={0.9}
+      onPress={() => navigate('DetailMovie', movie)}
+      style={{
+        height,
+        width,
+        marginHorizontal: 2,
+        paddingBottom: 20,
+        paddingHorizontal: 7,
+      }}>
       <View style={styles.imageContainer}>
         <Image source={{uri}} style={styles.image} />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

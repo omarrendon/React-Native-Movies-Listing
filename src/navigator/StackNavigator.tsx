@@ -2,12 +2,12 @@ import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {Home, DetailProduct, Cart, Favorites} from '../screens/index';
-import {TapNavigator} from './TapNavigator';
+import {Home, DetailMovies, Cart, Favorites} from '../screens/index';
+import {Movie} from '../interfaces/movieInterface';
 
 export type RootStackParams = {
   Home: undefined;
-  DetailProduct: undefined;
+  DetailMovie: Movie;
   Cart: {id: number; name: string};
   Favorites: undefined;
 };
@@ -33,11 +33,11 @@ export const StackNavigator = () => {
         }}
       />
       <Stack.Screen
-        name="DetailProduct"
+        name="DetailMovie"
         options={{
-          title: 'Deatalle de producto',
+          title: 'Movie detail',
         }}
-        component={DetailProduct}
+        component={DetailMovies}
       />
       <Stack.Screen
         name="Cart"

@@ -5,14 +5,10 @@ import {
   StyleSheet,
   View,
   Dimensions,
-  FlatList,
-  Text,
   ScrollView,
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/Ionicons';
 import {useMovies} from '../hooks/useMovies';
-import {colors} from '../theme/appTheme';
 import {
   AddToCartButton,
   HorizontalSlider,

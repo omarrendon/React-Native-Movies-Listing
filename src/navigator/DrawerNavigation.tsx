@@ -10,7 +10,6 @@ import {
   Text,
   Image,
 } from 'react-native';
-import AddToCartButton from '../components/AddToCartButton';
 
 import {Cart, Favorites, SettingsScreen} from '../screens';
 import {StackNavigator} from './StackNavigator';
