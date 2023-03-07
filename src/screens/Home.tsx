@@ -44,11 +44,12 @@ export const Home = ({navigation}: Props) => {
             inactiveSlideOpacity={0.9}
           />
         </View>
-        <HorizontalSlider title="Popular" movies={popular} />
-        <HorizontalSlider title="Top Rated" movies={topRated} />
-        <HorizontalSlider title="Upcoming" movies={upcoming} />
+        <View style={styles.rowsContainer}>
+          <HorizontalSlider title="Popular" movies={popular} />
+          <HorizontalSlider title="Top Rated" movies={topRated} />
+          <HorizontalSlider title="Upcoming" movies={upcoming} />
+        </View>
       </ScrollView>
-      <AddToCartButton />
     </SafeAreaView>
   );
 };
@@ -60,5 +61,8 @@ const styles = StyleSheet.create({
   },
   carouselContainer: {
     height: 440,
+  },
+  rowsContainer: {
+    marginBottom: 50,
   },
 });
